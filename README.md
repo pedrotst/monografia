@@ -18,7 +18,7 @@ Projeto de monografia
 Beleza, tá tudo pronto pra rodar, abra a monografia.tex pelo textstudio e mande rodar e compilar.
 Se você tiver o mesmo problema que eu no arquivo hypernat.sty  siga os seguintes passos que encontrei para resolver:
 
-You may see an error having to do with 'hypernat.sty.' To resolve this error, you can manually download the hypernat.sty file from here. Unzip the file and save the hypernat.sty file in the 'misc' folder at the end of a filepath that follows this structure: C:\Program Files\MiKTeX 2.9\tex\latex\misc. Then go to the start menu > All Programs > MikTeX 2.9 > Maintenance (Admin) > Settings (Admin). Click the "Update Formats" button. And then click the Refresh FNDB button. Click OK. You should then be able to build your LaTeX document without the 'hypernat.sty' warning.
+You may see an error having to do with 'hypernat.sty.' To resolve this error, you can manually download the hypernat.sty file from here http://ctan.um.ac.ir/macros/latex/contrib/hypernat.zip. Unzip the file and save the hypernat.sty file in the 'misc' folder at the end of a filepath that follows this structure: C:\Program Files\MiKTeX 2.9\tex\latex\misc. Then go to the start menu > All Programs > MikTeX 2.9 > Maintenance (Admin) > Settings (Admin). Click the "Update Formats" button. And then click the Refresh FNDB button. Click OK. You should then be able to build your LaTeX document without the 'hypernat.sty' warning.
 
 Pronto, está tudo preparado pra começarmos a trabalhar :D
 
