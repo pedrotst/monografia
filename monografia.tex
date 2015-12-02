@@ -1,3 +1,5 @@
+% !TeX spellcheck = pt_BR
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Classe do documento
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -26,8 +28,11 @@
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{footnote}
 %\usepackage{minipage}
+\usepackage{float}
 \usepackage{tablefootnote} 
 \usepackage{listings}
+\usepackage{myglossary}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Cores dos links
@@ -51,29 +56,37 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Informações sobre a monografia
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{UnB-CIC: Uma classe em LaTeX para textos do Departamento de Ciência da Computação}%
+\title{UnBBayes- Um Estudo}%
 
-\orientador{\prof \dr Guilherme Novaes Ramos}{CIC/UnB}
-%\coorientador[a]{\prof[a] \dr[a] Coorientadora}{MAT/UnB}
+\orientador{\prof \dr Marcelo Ladeira}{CIC/UnB}
+\coorientador{\prof Shou Matsumoto}{CIC/GMU}
 \coordenador[a]{\prof[a] \dr[a] Coorde Nadora}{CIC/UnB}
-\diamesano{24}{dezembro}{2014}%
+\diamesano{07}{dezembro}{2015}%
 
 \membrobanca{\prof[a] \dr[a] Membra da Banca}{MEC}
 \membrobanca{\prof \dr Membro do Banco}{CIC/UnB}
 
+\autor{Guilherme C.}{Torres}
 \autor{Guilherme N.}{Ramos}
 \CDU{004.4}
 
-\palavraschave{\LaTeX, metodologia científica}
+\palavraschave{\LaTeX, Redes Bayesianas, UnBBayes}
 \keywords{\LaTeX, scientific method}
 
 
 
 \graphicspath{{.}{img/}}%
 \newcommand{\unbcic}{\texttt{UnB-CIC}}%
+
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TextoF
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 \begin{document}
   \maketitle
@@ -91,6 +104,7 @@ Agradeço ao Prof. José Ralha, cujos esforços na versão anterior foram bem ``
   \begin{resumo}
   Um parágrafo resumindo todo o trabalho. Classe \LaTeX\ para gerar documentos do Departamento de Ciência da Computação da Universidade de Brasília.
   \end{resumo}
+  
 
   \selectlanguage{american}
   \begin{abstract}
@@ -98,16 +112,20 @@ Agradeço ao Prof. José Ralha, cujos esforços na versão anterior foram bem ``
   \end{abstract}
   \selectlanguage{brazil}
 \hyphenation{a-tri-bu-tos}
+
   \tableofcontents
   \listoffigures
   \listoftables
-
+  \printnoidxglossaries
 \renewcommand{\appendixname}{Anexo}
 
 
   \textual
-  
-  \input{tex/Capitulo1}
+  \input{tex/Intro}
+  \input{tex/Design_Patterns}
+  \input{tex/Arquitetura}
+  \input{tex/Plugins}
+  \input{tex/Redes_Bayesianas}
   % inserir demais capítulos
   
 
@@ -116,6 +134,6 @@ Agradeço ao Prof. José Ralha, cujos esforços na versão anterior foram bem ``
   \bibliography{bibliografia}
 
 \appendix
-  \input{tex/Anexo1}
+  %\input{tex/Anexo1}
 
 \end{document}
