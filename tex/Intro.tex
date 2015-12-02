@@ -1,9 +1,21 @@
 % !TeX spellcheck = pt_BR
 \chapter{Introdução}%
-Redes Bayesianas é um modelo gráfico para relações probabilísticas dado conjunto de variáveis. Nas últimas décadas, redes Bayesianas se tornaram representações populares para codificar conhecimento especialista incerto para sistemas especialistas (Heckerman et al., 1995). Mais recentemente, pesquisadores desenvolveram métodos de aprendizagem de redes Bayesianas a partir de dados. As técnicas desenvolvidas são novas e ainda em evolução, mas eles têm se mostrado muito eficientes para alguns problemas de análise de dados.
+\gls{bn} é um modelo gráfico para relações probabilísticas dado conjunto de variáveis. Nas últimas décadas, redes Bayesianas se tornaram representações populares para codificar conhecimento especialista incerto para sistemas especialistas \cite{heck95}. Mais recentemente, pesquisadores desenvolveram métodos de aprendizagem de redes Bayesianas a partir de dados. As técnicas desenvolvidas são novas e ainda em evolução, mas eles têm se mostrado muito eficientes para alguns problemas de análise de dados.
 
-Existem diversos representações possíveis para analise de dados, entre elas, rule bases, decision tress, e redes neurais artificiais; e outras tantas como estimação de densidade, classificação, regressão e clusterings. Portanto o que métodos de redes Bayesianas têm a oferecer? Podemos oferecer pelo menos quatro respostas.
+Existem diversos representações possíveis para analise de dados, entre elas, rule bases, decision tres, e redes neurais artificiais; e outras tantas como estimação de densidade, classificação, regressão e clusterings. Portanto o que métodos de \glspl{bn} têm a oferecer? Segundo Heckerman \cite{heck95} podemos oferecer pelo menos quatro respostas, sendo elas:
 
-Primeiramente, redes Bayesianas lidam com um conjunto incompleto de dados de maneira natural.
+\begin{enumerate}
+	\item \glspl{bn} lidam com um conjunto incompleto de dados de maneira natural.
 
-Em segundo lugar, BNs permitem aprender sobre as relações causais. Aprender sobre tais relações são importantes por pelo menos duas razões: O processo é útil quando se está tentando entender sobre um dado problema de domínio, como por exemplo, durante uma análise de dados exploratória. 
+	\item \glspl{bn} permitem aprender sobre as relações causais. Aprender sobre tais relações são importantes por pelo menos duas razões: O processo é útil quando se está tentando entender sobre um dado problema de domínio, como por exemplo, durante uma análise de dados exploratória.  E mais, conhecimento de relações causais nos permitem fazer predições na presença de intervenções. Por exemplo, um analista de mercado pode querer saber se é lucrativo aumentar o investimento em determinada propaganda para aumentar as vendas de seu produto. Para responder esta pergunta o analista pode determinar se esta propaganda é a causa para o aumento de suas vendas, e em caso afirmativo, quanto. O uso de \glspl{bn} nos ajuda a responder tal pergunta até mesmo quando não há experimentos nos efeitos de tal propaganda.
+	
+	\item \glspl{bn} em conjunto com técnicas estatísticas bayesianas facilitam a combinação de conhecimento de domínio e dados. Qualquer um que tenha feito uma análise do mundo real sabe a importância de conhecimento prévio ou de domínio, em especial quando os dados são poucos ou caros. Pelo fato de alguns sistemas comerciais (i.e., sistemas especialistas) podem ser construídos a partir de conhecimentos prévios. \cglspl{bn} possuem uma semântica causal que permitem conhecimentos prévios serem representados de uma forma muito simples e natural. Além disto, \glspl{bn} encapsulam tais relações causais com suas probabilidades. Consequentemente, conhecimento prévio e dados podem ser combinados com técnicas bem estudadas da estatística Bayesiana.
+	
+	\item Métodos Bayesianos em conjunto com \glspl{bn} e outros tipos de modelos oferecem uma forma eficiente para evitar over fitting dos dados. Como veremos, não há necessidade de excluir parte dos dados do treinamento do aprendizado da rede. Usando técnicas Bayesianas, modelos podem ser "suavizados" de tal forma que todo dado disponível pode ser usado para o treinamento.
+
+\end{enumerate}
+
+\section{Probabilidade e Estatística Bayesiana}
+Para entender \glspl{bn} e as técnicas de aprendizado associadas, é importante entender a diferença entre a Probabilidade e Estatística padrão e a Bayesiana.
+
+Resumidamente
