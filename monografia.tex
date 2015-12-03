@@ -1,139 +1,48 @@
-% !TeX spellcheck = pt_BR
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Classe do documento
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Nós usamos a classe "unb-cic".  Deixe apenas uma das linhas
-% abaixo não-comentada, dependendo se você for do bacharelado ou
-% da licenciatura.
+% Opções:
+%  - Graduação: bacharelado|engenharia|licenciatura
+%  - Pós-graduação: [qualificacao], mestrado|doutorado, ppca|ppginf
 
-% Para tirar os comentários, é só mudar o comando para fazer nada.
-\newcommand{\com}[1]{\textcolor{red}{#1}}%
+% \documentclass[engenharia]{UnB-CIC}%
+\documentclass[bacharelado]{UnB-CIC}%
 
-\documentclass[mpca]{unb-cic}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Pacotes importados
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\usepackage[brazil,american]{babel}
-\usepackage[T1]{fontenc}
-\usepackage{indentfirst}
-\usepackage{natbib}
-\usepackage{xcolor,graphicx,url}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{footnote}
-%\usepackage{minipage}
+\usepackage{pdfpages}% incluir PDFs, usado no apêndice
 \usepackage{float}
-\usepackage{tablefootnote} 
-\usepackage{listings}
 \usepackage{myglossary}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Cores dos links
+% Informações do Trabalho
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Veja o arquivos cores.tex se quiser ver que outras cores estão
-% pré-definidas.  Utilizando o comando \hypersetup abaixo nós
-% evitamos aquelas caixas vermelhas feias em volta dos links.
-
-\input{cores}
-\hypersetup{
-  colorlinks=true,
-  linkcolor=DarkScarletRed,
-  citecolor=DarkScarletRed,
-  filecolor=DarkScarletRed,
-  urlcolor= DarkScarletRed
-}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Informações sobre a monografia
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{Extensão do UnBBayes para suportar Incremental Learning de Redes Bayesianas}%
-
-\orientador{\prof \dr Marcelo Ladeira}{CIC/UnB}
-\coorientador{\prof Shou Matsumoto}{CIC/GMU}
-\coordenador[a]{\prof[a] \dr[a] Coorde Nadora}{CIC/UnB}
+\orientador{\prof \dr Marcelo Ladeira}{CIC/UnB}%
+\coorientador{\prof \dr Shou Matsumoto}{CIC/GMU}
+\coordenador[a]{\prof[a] \dr[a] Ada Lovelace}{Bibliothèque universelle de Genève}%
 \diamesano{07}{dezembro}{2015}%
 
-\membrobanca{\prof[a] \dr[a] Membra da Banca}{MEC}
-\membrobanca{\prof \dr Membro do Banco}{CIC/UnB}
+\membrobanca{\prof \dr Donald Knuth}{Stanford University}%
+\membrobanca{\dr Leslie Lamport}{Microsoft Research}%
 
-\autor{Guilherme C.}{Torres}
-\autor{Guilherme N.}{Ramos}
-\CDU{004.4}
+\autor{Pedro da C.}{Abreu}%
 
-\palavraschave{Redes Bayesianas, UnBBayes, Aprendizado, Design Pattern}
-\keywords{\LaTeX, scientific method}
+\title{Incremental Learning de Redes Bayesianas e o UnBBayes}%
 
+\palavraschave{LaTeX, metodologia científica, trabalho de conclusão de curso}%
+\keywords{LaTeX, scientific method, thesis}%
 
-
-\graphicspath{{.}{img/}}%
 \newcommand{\unbcic}{\texttt{UnB-CIC}}%
-
-
-
-
-
+%\printnoidxglossaries
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TextoF
+% Texto
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}%
+	\capitulo{Intro}{Introdução}
+	\capitulo{Redes_Bayesianas}{Redes Bayesianas}
+	\capitulo{Aprendizado}{Aprendizado de Redes Bayesianas}
+	\capitulo{UnBBayes}{UnBBayes}
+	\capitulo{Design_Patterns}{Design Patterns}
+	\capitulo{Arquitetura}{Arquitetura do UnBBayes}
+	\capitulo{Atividades}{Resumo das Atividades}
+	\capitulo{Conclusao}{Conclusão}
 
-
-
-\begin{document}
-  \maketitle
-
-  \begin{dedicatoria}
-Citando o poeta: ``Eu dedico essa música a primeira garota que tá sentada ali na fila. Brigado!''
-  \end{dedicatoria}
-
-  \begin{agradecimentos}
-Agradeço ao Prof. José Ralha, cujos esforços na versão anterior foram bem ``adaptados'' a este trabalho.
-  \end{agradecimentos}
-
-\hyphenation{au-xi-li-ar}
-
-  \begin{resumo}
-	Com o crescente interesse em aprendizado de máquina, frameworks robustos e implementações do estado da arte são uma necessidade do mundo moderno. Pensando nisso levantamos um estudo sobre o estado da arte de aprendizado no contexto de \gls{bn}, já que \glspl{bn} provêm um excelente modelo para lidar com relações causais e probabilidade bayesiana. Para tal utilizaremos o framework UnBBayes e desenvolveremos plugins para este.
-  \end{resumo}
-  
-
-  \selectlanguage{american}
-  \begin{abstract}
-  With the growing interest in machine learning, good frameworks and state of the art implementation are a need in modern world. With this in mind we provide a study in the state of the art of \gls{bn}, since \glspl{bn} provide a great model to deal with causal relations and bayesian probability. For such we shall use UnBBayes framework and implement plugins for it.
-  \end{abstract}
-  \selectlanguage{brazil}
-\hyphenation{a-tri-bu-tos}
-
-  \tableofcontents
-  \listoffigures
-  \listoftables
-  \printnoidxglossaries
-\renewcommand{\appendixname}{Anexo}
-
-
-  \textual
-  \input{tex/Intro}
-  \input{tex/Design_Patterns}
-  \input{tex/Arquitetura}
-  \input{tex/Plugins}
-  \input{tex/Redes_Bayesianas}
-  % inserir demais capítulos
-  
-
-  \postextual
-  \bibliographystyle{plain}
-  \bibliography{bibliografia}
-
-\appendix
-  %\input{tex/Anexo1}
-
-\end{document}
+\end{document}%

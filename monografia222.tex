@@ -1,0 +1,98 @@
+% !TeX spellcheck = pt_BR
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Classe do documento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Opções:
+%  - Graduação: bacharelado|engenharia|licenciatura
+%  - Pós-graduação: [qualificacao], mestrado|doutorado, ppca|ppginf
+
+% \documentclass[engenharia]{UnB-CIC}%
+\documentclass[qualificacao,bacharelado,ppca]{UnB-CIC}%
+
+\usepackage{pdfpages}% incluir PDFs, usado no apêndice
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Informações do Trabalho
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\orientador{\prof \dr Guilherme Novaes Ramos}{CIC/UnB}%
+%\coorientador{\prof \dr José Ralha}{CIC/UnB}
+\coordenador[a]{\prof[a] \dr[a] Ada Lovelace}{Bibliothèque universelle de Genève}%
+\diamesano{24}{dezembro}{2014}%
+
+\membrobanca{\prof \dr Donald Knuth}{Stanford University}%
+\membrobanca{\dr Leslie Lamport}{Microsoft Research}%
+
+\autor{Guilherme N.}{Ramos}%
+
+\titulo{UnB-CIC: Uma classe em LaTeX para textos do Departamento de Ciência da Computação}%
+
+\palavraschave{Redes Bayesianas, UnBBayes, Aprendizado, Design Pattern}
+\keywords{\LaTeX, scientific method}
+
+\newcommand{\unbcic}{\texttt{UnB-CIC}}%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TextoF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{document}
+  \maketitle
+
+  \begin{dedicatoria}
+Citando o poeta: ``Eu dedico essa música a primeira garota que tá sentada ali na fila. Brigado!''
+  \end{dedicatoria}
+
+  \begin{agradecimentos}
+Agradeço ao Prof. José Ralha, cujos esforços na versão anterior foram bem ``adaptados'' a este trabalho.
+  \end{agradecimentos}
+
+\hyphenation{au-xi-li-ar}
+
+  \begin{resumo}
+	Com o crescente interesse em aprendizado de máquina, frameworks robustos e implementações do estado da arte são uma necessidade do mundo moderno. Pensando nisso levantamos um estudo sobre o estado da arte de aprendizado no contexto de \gls{bn}, já que \glspl{bn} provêm um excelente modelo para lidar com relações causais e probabilidade bayesiana. Para tal utilizaremos o framework UnBBayes e desenvolveremos plugins para este.
+  \end{resumo}
+  
+
+  \selectlanguage{american}
+  \begin{abstract}
+  With the growing interest in machine learning, good frameworks and state of the art implementation are a need in modern world. With this in mind we provide a study in the state of the art of \gls{bn}, since \glspl{bn} provide a great model to deal with causal relations and bayesian probability. For such we shall use UnBBayes framework and implement plugins for it.
+  \end{abstract}
+  \selectlanguage{brazil}
+\hyphenation{a-tri-bu-tos}
+
+  \tableofcontents
+  \listoffigures
+  \listoftables
+  \printnoidxglossaries
+\renewcommand{\appendixname}{Anexo}
+
+
+  \textual
+  \input{tex/Intro}
+  \input{tex/Redes_Bayesianas}
+  \input{tex/Aprendizado}
+  \input{tex/UnBBayes}
+  \input{tex/Design_Patterns}
+  \input{tex/Arquitetura}
+  \input{tex/Atividades}
+  \input{tex/Conclusao}
+  % inserir demais capítulos
+  
+
+  \postextual
+  \bibliographystyle{plain}
+  \bibliography{bibliografia}
+
+\appendix
+  %\input{tex/Anexo1}
+
+\end{document}
