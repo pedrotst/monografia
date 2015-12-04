@@ -1,7 +1,15 @@
+No cotidiano do ser humano é muito comum raciocinar e tomar decisões sob condições de incerteza. Isto é tão visível e profundo para algumas pessoas que no século XVIII Bishop Butler declarou "probabilidade é o guia da vida".
 
-\gls{bn} é um modelo gráfico para relações probabilísticas dado conjunto de variáveis. Nas últimas décadas, redes Bayesianas se tornaram representações populares para codificar conhecimento especialista incerto para sistemas especialistas \cite{heck95}. Mais recentemente, pesquisadores desenvolveram métodos de aprendizagem de redes Bayesianas a partir de dados. As técnicas desenvolvidas são novas e ainda em evolução, mas eles têm se mostrado muito eficientes para alguns problemas de análise de dados.
+Como um exemplo do quanto probabilidade é importante tome a medicina. Para um especialista médico determinar a doença de uma pessoa com base nos sintomas observados (evidências) é preciso que ele leve em conta a probabilidade daquele sintoma refletir esta ou aquela doença, pois a doença ocasiona determinado sintoma apenas com alguma probabilidade, mas não com certeza.
 
-Existem diversos representações possíveis para analise de dados, entre elas, rule bases, decision tres, e redes neurais artificiais; e outras tantas como estimação de densidade, classificação, regressão e clusterings. Portanto o que métodos de \glspl{bn} têm a oferecer? Segundo Heckerman \cite{heck95} podemos oferecer pelo menos quatro respostas, sendo elas:
+Podemos ainda citar vários outros exemplos, como na economia, teoria dos jogos, genética, previsão do tempo.
+
+Pensando nisso é necessário um modelo robusto para lidar com tantas incertezas, para tanto escolhemos as \glspl{bn}.
+
+\section{Motivação}
+\gls{bn} é um modelo gráfico para relações probabilísticas dado conjunto de variáveis. Nas últimas décadas, redes Bayesianas se tornaram representações populares para codificar conhecimento incerto para sistemas especialistas \cite{heck95}. Mais recentemente, pesquisadores desenvolveram métodos de aprendizagem de redes Bayesianas a partir de dados. As técnicas desenvolvidas são relativamente novas e ainda em evolução, mas eles têm se mostrado muito eficientes para alguns problemas de análise de dados.
+
+Existem diversos representações possíveis para analise de dados, entre elas, decision tres, e redes neurais artificiais; e outras tantas como estimação de densidade, classificação, regressão e clusterings. Portanto o que métodos de \glspl{bn} têm a oferecer? Segundo Heckerman \cite{heck95} podemos oferecer pelo menos quatro respostas, sendo elas:
 
 \begin{enumerate}
 	\item \glspl{bn} lidam com um conjunto incompleto de dados de maneira natural.
@@ -13,9 +21,12 @@ Existem diversos representações possíveis para analise de dados, entre elas, 
 	\item Métodos Bayesianos em conjunto com \glspl{bn} e outros tipos de modelos oferecem uma forma eficiente para evitar over fitting dos dados. Como veremos, não há necessidade de excluir parte dos dados do treinamento do aprendizado da rede. Usando técnicas Bayesianas, modelos podem ser "suavizados" de tal forma que todo dado disponível pode ser usado para o treinamento.
 
 \end{enumerate}
-\section{Probabilidade física versus probabilidade Bayesiana}
-Para entender \glspl{bn} e as técnicas de aprendizado associadas, é importante entender a diferença entre a Probabilidade e Estatística padrão e a Bayesiana.
 
-Resumidamente a probabilidade e padrão, também cohecida como probabilidade física é aquela que mede a probabilidade real do mundo. Como por exemplo o lançamento de moedas. É bem aceito que há 50\% de probabilidade de um lançamento de uma moeda não viciada dê cara, pois temos duas possibilidades e todas elas são igualmente prováveis. Outro exemplo é a probabilidade de tirar uma carta de paus dado um baralho padrão, dado que o baralho está embaralhado e que contém 13 cartas de cada naipe, a probabilidade da carta do topo do baralho ser de paus é 25\%. Isto é a probabilidade física, aquela probabilidade que todos estamos acostumados a lidar desde sempre.
+\section{Objetivos}
+O objetivo deste trabalho é apresentar os conhecimentos adquiridos durante este semestre na disciplina de Estudos Em Inteligência Artificial com o professor Ladeira da \gls{unb}, com a colaboração do Doutorando Shou Matsumoto da \gls{gmu}, através de aulas pelo skype. E também firmar bases sólidas sobre os conhecimentos que serão necessários na concepção da verdadeira monografia, isto é, o trabalho de conclusão de curso.
 
-No entanto, imagine agora que queremos determinar a probabilidade de tirar 
+
+\section{Estrutura da Monografia}
+Este documento é organizado da seguinte maneira: no capítulo 2 explicamos a visão probabilística necessária, isto é, firmamos a base do trabalho que se segue, como todos axiomas e definições necessários. No capítulo 3 formalizamos o conceito de \glspl{bn} e algumas de suas propriedades. No capítulo 4 discutimos como construí-las a partir de um conjunto de dados. No capítulo 5 explicamos o framework do UnBBayes, como ele funciona e como extendê-lo. O capítulo 5 discutimos alguns dos Design Patterns mais importantes. No capítulo 6 resumimos o trabalho do semestre e oferecemos uma prévia dos trabalhos a serem feitos nos próximos semestres.
+
+
