@@ -18,10 +18,10 @@ Considere a \gls{bn} contendo $n$ nós, $X_1$ até $X_n$, tomados nesta ordem. U
 	= \prod_{i}^{}P(x_i|x_1,...,x_{i-1})
 \end{equation}
 No entanto, a estrutura de uma \gls{bn} implica que o valor de um nó em particular é condicionado apenas aos valores dos nós pais, o que reduz a equação acima à:
-\begin{equation}
-P(x_1, x_2, ..., x_n) = \prod_i P(x_i|pa(x_i))
+\begin{equation}\label{eq:pearl}
+P(x_1, x_2, ..., x_n) = \prod_i P(x_i|pa_i)
 \end{equation}
-Onde $pa(x_i)$ são os nós pais de $x_i$
+Onde $pa_i$ são os nós pais de $x_i$
 
 \section{D-separation}
 Segundo Cheng\cite{cheng02} Uma rede bayesiana pode ser vista como um sistema de rede de canais de informação, onde cada não é uma válvula que está aberta ou fechada e as válvulas são conectadas por canais de informação ruidosos (arestas). O fluxo de informação pode passar por um válvula aberta, mas não por uma válvula fechada. Quando todas as válvulas sobre um caminho entre dois não estão abertas, diz-se que este caminho é aberto. Se qualquer válvula no caminho está fechada, diz-se que o caminho é fechado.
