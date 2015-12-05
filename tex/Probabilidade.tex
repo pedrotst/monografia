@@ -1,33 +1,66 @@
 \section{Probabilidade física versus probabilidade Bayesiana}
-Para entender \glspl{bn} e as técnicas de aprendizado associadas, é importante entender a diferença entre a Probabilidade e Estatística padrão e a Bayesiana.
+Para entender \glspl{bn} e as técnicas de aprendizado associadas, é importante entender a diferença entre a Probabilidade e Estatística padrão e a Bayesiana \cite{korb04}
 
 %Resumidamente a probabilidade bayesiana de um evento x é o grau de crença de uma pessoa naquele evento. Enquanto a probabilidade clássica é é uma propriedade física do mundo (por exemplo a probabilidade de um lançamento de moeda dar cara), a probabilidade Bayesiana é uma propriedade da pessoa que diz a probabilidade (por exemplo seu grau de crença do lançamento dar cara).
 
-A Probabilidade física, também conhecida como probabilidade frequentista, foi advogada pelo matemático John Venn \cite{ven66} no século XIX, identificando probabilidade com frequências dos eventos no longo prazo. A reclamação mais óbvia que surge neste modelo é que as frequências no curto prazo obviamente não casam com as calculadas, por exemplo, se jogarmos a moeda apenas uma vez, certamente concluiríamos que a probabilidade de cara é ou 1 ou 0.
+A Probabilidade física, também conhecida como probabilidade frequentista, foi advogada pelo matemático John Venn \cite{venn66} no século XIX, identificando probabilidade com frequências dos eventos no longo prazo. A reclamação mais óbvia que surge neste modelo é que as frequências no curto prazo obviamente não casam com as calculadas, por exemplo, se jogarmos a moeda apenas uma vez, certamente concluiríamos que a probabilidade de cara é ou 1 ou 0.
 
 Uma alternativa ao conceito de probabilidade física é pensar nas probabilidades como nosso grau de crença subjetivo. Esta visão foi expressa por Thomas Bayes \cite{bayes63} e Pierre Simon de Laplace \cite{laplace12} a duzentos anos atrás. Esta é uma visão mais. Esta é uma visão mais geral da probabilidade pois leva em conta que temos crenças subjetivas em um grande variedade de proposições, muitas das quais não estão claramente ligadas a um processo físico.  Por exemplo, a maioria de nós acreditamos na Hipótese de Copérnico de que a terra orbita em torno do sol, mas isto é baseado em evidencia não obviamente da mesma forma que um processo de amostragem. Isto é, ninguém é capaz de gerar sistemas solares repetidamente e observar a frequência com a qual os planetas giram em torno do sol. Seja como for Bayesianistas estão preparados para conversar sobre a probabilidade da tese de Copérnico ser verdadeira e ainda relacionar as relações de evidências a favor e contra ela. 
 
-Bayesiansmo pode ser visto como uma generalização da probabilidade física. Para isto adotamos o que David Lewis apelidou de Principal Principle \cite{lewis80}: sempre que se aprender uma probabilidade física de uma amostragem é r, atualize sua probabilidade subjetiva para aquela amostragem r. Basicamente isto é senso comum: pense na probabilidade de um colega raspar a cabeça como 0.01, mas se você aprende que ele faz isso se e somente se um dado justo for lançado e der 2, você revisará sua opinião de acordo.
+Bayesiansmo pode ser visto como uma generalização da probabilidade física. Para isto adotamos o que David Lewis apelidou de Principal Principle \cite{lewis80}: sempre que se aprender uma probabilidade física de uma amostragem r, atualize sua probabilidade subjetiva para aquela amostragem r. Basicamente isto é senso comum: pense que para você a  probabilidade de um colega raspar a cabeça como 0.01, mas se você aprende que ele faz isso se e somente se um dado justo for lançado e der 2, você certamente revisará sua opinião de acordo.
 
 Tendo explicado como as probabilidades Físicas e Bayesianas são compatíveis podemos seguir para a definição dos axiomas da probabilidade. 
 
 \section{Axiomas da Probabilidade}
-Seja $U$ o universo de possíveis evento. Os Axiomas de Kolmogorov \cite{kolmogorov33} são:
+Seja $U$ o universo de possíveis evento. Os três Axiomas de Kolmogorov \cite{kolmogorov33} afirmam que:
 
-\newtheorem{kolg1}{Axiom}[chapter]
-\newtheorem{kolg2}[kolg1]{Axiom}
-\newtheorem{kolg3}[kolg1]{Axiom}
+\newtheorem{kolg1}{Axioma}[chapter]
+\newtheorem{kolg2}[kolg1]{Axioma}
+\newtheorem{kolg3}[kolg1]{Axioma}
 \begin{kolg1}
-	$P(U) = 1$
+	A probabilidade do acontecimento certo $U$, é 1:
+	
+	\centering $P(U) = 1$
 \end{kolg1}
-
-Onde $P$ é uma massa de probabilidade, somando ou integrando em 1, é distribuído sobre $U$, uniformemente ou não. 
+ 
 
 \begin{kolg2}
-	$for\ all\ X \subseteq U, P(X) \ge 0$
+	A probabilidade de qualquer acontecimento é maior ou igual a zero 
+	
+	\centering $Para\ todo\ X \subseteq U, P(X) \ge 0$
 \end{kolg2}
 
 
 \begin{kolg3}
-	$for\ all\ X, Y \subseteq U,\ if\ X \cap Y = \emptyset,\ then\ P(X \cup Y) = P(X) + P(Y)$
+	Dados dois acontecimentos disjuntos, a probabilidade da sua união é igual à soma das probabilidades de cada um 
+	
+	\centering $Para\ todo\ X, Y \subseteq U,\ se\ X \cap Y = \emptyset,\ então\ P(X \cup Y) = P(X) + P(Y)$
 \end{kolg3}
+
+\newtheorem{cond_prob}{Definição}[chapter]
+\begin{cond_prob}
+	\textbf{Probabilidade Condicional}
+	
+	\centering $P(X|Y) = \frac{P(X \cap Y)}{P(Y)}$
+\end{cond_prob}
+A probabilidade condicional exprime a seguinte ideia: dado que o evento $Y$ já ocorreu, ou vai ocorrer, a probabilidade de $X$ também ocorrer é $P(X|Y)$
+
+\newtheorem{independence}[cond_prob]{Definição}
+\begin{independence}
+	\textbf{Independência}
+
+	\centering	$X \perp Y \equiv P(X|Y) = P(X)$
+\end{independence}
+Dois eventos X e Y são probabilisticamente independentes se, ao condicionar sobre um, o outro permanece igual.
+
+\section{Teorema de Bayes}
+\newtheorem{bayes}{Teorema}[chapter]
+\begin{bayes}
+	\textbf{Teorema de Bayes}
+	
+	\centering $P(h|e) = \frac{P(e|h)P(h)}{P(e)}$
+\end{bayes}
+Este teorema diz que a probabilidade de uam hipótese $h$ condicionada sobre alguma evidencia $e$ é igual à multiplicação da crença a priori $P(h)$ pela verossimilhança $P(e|h)$. Desta forma $P(e|h)$ é chamada de probabilidade a posteriori.
+
+É importante observar que $P(h|e)+P(\neg  h|e) = 1$ e isto implica que $P(e|h)P(h) +P(e|\neg h)P(\neg h)= P(e)$
+
