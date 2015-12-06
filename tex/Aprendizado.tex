@@ -85,9 +85,9 @@ A matriz $N_{ijk}$ para dispnéia, obtida através da contagem na matriz D das o
 	0 & 3 & 2 & 1 & 0 \\\hline
 	1 & 1 & 7 & 0 & 0 \\\hline
 	}%
-A partir dessa taela é possível calcular a probabilidade associada a cada parâmetro da distribuição de probabilidade da variável aleatória DIspneia. A tabela de probabiliades condicionais de Dispneia, calculada com a \ref{eq:param_learn}, está representada na Tabela \refTab{tab:cpt_disp}
+A partir dessa taela é possível calcular a probabilidade associada a cada parâmetro da distribuição de probabilidade da variável aleatória DIspneia. A tabela de probabiliades condicionais de Dispneia, calculada com a \ref{eq:param_learn}, está representada na \refTab{tab:cpt_disp}
 
-\tabela{CPT calculada para Dspneia}{tab:cpt_disp}{| c | c | c | c | c | c |}%
+\tabela{CPT calculada para Dispneia}{tab:cpt_disp}{| c | c | c | c | c | c |}%
 {\hline
 	& TouC & 0 & 0 & 0 & 1 \\\hline
 	& Bronquite & 0 & 1 & 0 & 1\\\hline\rule[-2.5ex]{0pt}{7ex}
@@ -99,6 +99,18 @@ A partir dessa taela é possível calcular a probabilidade associada a cada par�
 }%
 
 \section{Aprendizado de Estrutura}
+O Objetivo da aprendizagem da Estrutura é encontrar a topologia da \gls{bn} que mais se adequa aos nossos dados. Para isto podemos atacar o problema de duas formas distintas:
+\begin{itemize}
+	\item Busca e pontuação: fazemos uma busca no conjunto de todos \gls{dag} existentes entre nossas variáveis usando heurísticas robustas o suficiente.
+	\item Análise de dependência: utilizamos técnicas estatísticas bem desenvolvidas para analisar a dependência entre nossos dados e a partir deles inferir a estrutura da rede.
+\end{itemize}
 
+Vamos começar discutindo sobre algoritmos de busca e pontuação, apresentamos as heurísticas mais famosas.
+
+\subsection{Busca e Pontuação}
+
+
+
+\subsection{Análise de Dependência}
 
 \section{Aprendizado Incremental}
