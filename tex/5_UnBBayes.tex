@@ -2,7 +2,7 @@
 O UnBBayes é a ferramenta que expandiremos ao longo dos próximos semestres para desenvolver novos algoritmos.
 UnBBayes é uma aplicação open-source feita em Java\texttrademark\ desenvolvido pelo \gls{gia} do Departamento de Ciência da Computação da \gls{unb} no Brasil e provê um framework para construir modelos gráficos probabilísticos e realizar raciocínios plausíveis. Ele apresenta uma \gls{gui}, \gls{api} e ainda suporte a plug-ins para extensões não previstas.
 
-\cite{javaApi11} descreve os três objetivos principais das mais novas versões do UnBBayes, são eles:
+\cite[UnBBayes: a Java Framework for probabilistic models in AI]{javaApi11} descreve os três objetivos principais das mais novas versões do UnBBayes, são eles:
 \begin{itemize}
 	\item Ser uma plataforma para a disseminação dos conceitos e utilidade do raciocínio probabilístico;
 	\item Ser uma ferramenta visual fácil de usar e configurar;
@@ -24,7 +24,7 @@ O projeto oferece um repositório que incluem plug-ins para \gls{bn}, \gls{id}, 
 O UnBBayes é basicamente estruturado no design pattern \gls{mvc}
 (ver capítulo 6).
 
-A Figura \ref{fig:unbbayes_mvc} ilustra o design geral do UnBBayes.
+A \autoref{fig:unbbayes_mvc} ilustra o design geral do UnBBayes.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = 440px]{figuras/unbbayes_mvc}
@@ -36,7 +36,7 @@ Apesar do UnBBayes ser escrito em Java\texttrademark\, que é uma linguagem tipi
 
 Designs baseados em componentes provêem uma alta variabilidade e reusabilidaide, o que são alguns dos grandes requerimentos mencionados na seção anterior. Isto porque para fazer modificações no programa, basta substituir aquele componente por um outro. Por exemplo se precisarmos trocar o formato de um nó basta substituir o objeto que o rederiza. O que significa dizer que não há necessidade de entrar dentro de uma classe já pronta e configurar aquelas linhas de código.
 
-O módulo core do UnBBayes provê duas funcionalidades mestras: a infraestrutura base (por exemplo, suporte às telas, acesso aos arquivos, suporte a plug-ins) e uma manipulação de \gls{bn} com funcionalidades básicas (por exemplo inferência e manipulação). A seguir listamos os pacotes que compõem o core (a Figura \ref{fig:unbbayes_mvc} apresentou suas dependências gerais).
+O módulo core do UnBBayes provê duas funcionalidades mestras: a infraestrutura base (por exemplo, suporte às telas, acesso aos arquivos, suporte a plug-ins) e uma manipulação de \gls{bn} com funcionalidades básicas (por exemplo inferência e manipulação). A seguir listamos os pacotes que compõem o core (\autoref{fig:unbbayes_mvc} apresentou suas dependências gerais).
 
 \begin{itemize}
 	\item unbbayes.controller: Contem as classes do controller do MVC
@@ -65,7 +65,13 @@ O módulo core do UnBBayes provê duas funcionalidades mestras: a infraestrutura
 \end{itemize}
 
 \subsection{Classes da View e Controller}
-A lista a seguir oferece uma breve descrição das classes ilustradas na Figura \ref{fig:unbbayes_viewcontrol}
+A lista a seguir oferece uma breve descrição das classes ilustradas na \autoref{fig:unbbayes_viewcontrol}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width = 450px]{figuras/unbbayes_viewcontrol}
+	\caption[UnBBayes View e Controller]{Classes do UnBBayes (core) implementando a View e o Controller do MVC (Retirado de \cite{javaApi11})}
+	\label{fig:unbbayes_viewcontrol}
+\end{figure}
 \begin{itemize}
 	\item NamedWindowBuilder: este é um builder que instancia uma janela interna. Cada janela instanciada por estes builders terão um identificador (nome) e será colocado no MDIDesktopPane. Esta classe elimina dependencia direta do MainController às classes do módulo de \gls{bn} (por exemplo NetworkWindow)
 
@@ -94,15 +100,9 @@ A lista a seguir oferece uma breve descrição das classes ilustradas na Figura 
 	\item UShapeLine: esta classe é responsável por renderaziar os arcos no canvas. Ecapsulando a classe da model Edge.
 \end{itemize}
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width = 450px]{figuras/unbbayes_viewcontrol}
-	\caption[UnBBayes View e Controller]{Classes do UnBBayes (core) implementando a View e o Controller do MVC (Retirado de \cite{javaApi11})}
-	\label{fig:unbbayes_viewcontrol}
-\end{figure}
 
 \subsection{Classes da Model}
-Classes desta categoria representam dados dentro da memoria. A lista a seguir oferece uma breve descrição das classes da Figura \ref{fig:unbbayes_model}:
+Classes desta categoria representam dados dentro da memoria. A lista a seguir oferece uma breve descrição das classes da \autoref{fig:unbbayes_model}:
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width = 400px]{figuras/unbbayes_model}
