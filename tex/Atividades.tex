@@ -1,3 +1,33 @@
+Durante esse semestre de 2015/2 foram iniciados os estudos em conjunto com o Guilherme Carvalho para que desenvolvamos nosso TCC (independentemente) nos semestres que estão por vir.
+
+Este capítulo tem por objetivo oferecer um resumo das atividades desenvolvidas no decorrer deste semestre e delinear as atividades a serem feitas nos semestres seguintes. 
+
 \section{O que foi feito}
+No decorrer deste semestre o professor Shou Matsumoto, douturando da \gls{gmu} ministrou aulas semanais às segundas via Skype sobre os conteúdos de: 
+
+\begin{enumerate}
+	\item Preparação do ambiente UnBBayes. Com o objetivo de instalar o Maven e o Subversion no eclipse e deixar o ambiente pronto para trabalhar, consertando todos possíveis problemas de dependencias;
+	\item Design Pattern e Anti-Patterns;
+	\item Arquitetura do UnBBayes;
+	\item Como desenvolver um Plug-in para o UnBBayes;
+	\item Redes Bayesianas;
+	\item MEBN;
+	\item PR-OWL;
+	\item Diagramas de Influência.
+\end{enumerate}
+
+No decorrer do semestre também fui escalado para implementar ou consertar tarefas de usabilidade no UnBBayes. Foram elas:
+\begin{enumerate}
+	\item Implementar crtl+c e crtl+v de nós para a extensão MEBN;
+	\item Implementar deleção de multiplos findings de MEBN;
+	\item Refatorar a \gls{cpt} para prover uma melhor visualização de tabelas muito grandes.
+\end{enumerate}
+
+Para a primeira tarefa tentei refatorar o crtl+c crtl+v já existente no core para que cada nó saiba como se copiar, entretanto tive problemas com as chamadas de funções, pois a funcionalidade de cada nó não estava encapsulada o suficiente para fazê-lo, então por motivo de falta de tempo não pude ir adiante.
+
+A terceira tarefa foi implementada através da não-scrollagem da primeira coluna.
 
 \section{O que será feito}
+Ficou decidido que nos semestres subsequentes será implementado um novo módulo de Incremental Learning, utilizando-se as mais novas tecnicas disponíveis. E com isto analisar dados de Bactérias disponibilizados pelo professor Ladeira.
+
+Uma idealização do cronograma a ser realizado nos próximos semestres pode ser encontrado em \cite{cronograma}

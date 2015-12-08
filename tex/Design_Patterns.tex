@@ -1,6 +1,79 @@
-%\chapter{Design Patterns}%
+%\chapter{Design Patterns}
 
+Quando falamos de projetos de grande e médio porte, a manutenibilidade e fácil adição de novas funcionalidades são preocupações essenciais. Pensando nisso, um grupo de engenheiros de software experientes (muitas vezes denominados \gls{gof}) se juntaram para compartilhar algumas das soluções dos problemas que eles encontraram ser os mais recorrentes no mundo da engenharia de software e gerencia de projetos no livro \textit{Design Patterns: Elements of Reusable Object-oriented Software}\cite{dpatterns95}
+
+Segundo o \gls{gof} Design Patterns são soluções de padrões de problemas que ocorrem de repetidamente nos projetos orientado a objetos. A ideia é oferecer soluções de modelagens aos projetos em nível abstrato, tirando o máximo proveito de polimorfismo, de herança e da estruturação de classes em geral.
+
+A aplicação de design patterns é importante por diversos motivos, entre eles: Facilitam a comunicação entre desenvolvedores, aumenta a possibilidade de reuso (diminuindo, assim, o tempo de desenvolvimento e aumentando a produtividade), melhora a escalabilidade e qualidade, amplia a visão do desenvolvedor forçado-o a pensar em diversos níveis de abstração e finalmente torna o programa fácil de ser usado por terceiros.
+
+Pelo fato de o UnBBayes ser um projeto grande o suficiente, e que tem como meta oferecer extensiblidade, é de suma importância projetar uma boa estrutura de código e manter o "código bonito", por assim dizer. Para isto, foi dado a nós, que estamos iniciando como desenvolvedores do projeto, um rápido treinamento sobre Design Patterns e Qualidade de Código.
+
+Neste capítulo explicaremos conceitos importantes para o desenvolvimento orientado a objeto, oferecemos uma rápida explicação sobre os três tipos principais de Design Pattern, e os principais exemplos de cada um desses três tipos. No Anexo 1 oferecemos as figuras dos padrões UML de cada um dos Design Pattern mencionados
+
+\section{Conceitos Preliminares}
+\begin{itemize}
+	\item Acoplamento: O quanto duas (ou mais) classes dependem uma da outra para funcionar. Um alto acoplamento diminui a manutenibilidade do código pois as alterações em um código poderá ter grande impacto em todo o projeto. O ideal é que as alterações sejam atômicas, isto é, quanto menos uma alteração afetar o programa como um todo, melhor. Podemos dizer sem perda de generalidade que a essência de uma boa \gls{oo} é reduzir o acoplamento.
+	\item Coesão: Funcionalidades "bem empacotadas", isto é, cada classe, pacotes ou bibliotecas tem sua funcionalidade muito bem definida e especificada. Seus artefatos representam uma mesma categoria lógica.
+	\item Binding: Dependências entre classes e objetos
+	\item Open-Closed: Aberto para extensão, Fechado para alteração de fonte.
+	\item Inversão de Controle: Separar "o que" de "quando".
+	\item Injeção de Dependência: Especifica o objeto com o qual deve ser usado para resolver algum problema. É uma das formas de realizar inversão de Controle.
+	\item Orientação a componentes: componentes reutilizáveis são artefatos auto-contidos, claramente identificáveis, que descrevem ou realizam uma função específica e têm interfaces em conformidade com um dado modelo de arquitetura de software, possuindo documentação apropriada e um grau de reutilização definido\cite{werner00}.
+\end{itemize}
+A ideia chave de Design Patterns é aumentar a qualidade do nosso código. Para isto, podemos seguir algumas regras básicas, tais como:
+\begin{itemize}
+	
+	\item Evitar if-else, switch-case sempre que possível utilizar polimorfismo e injeção de dependências.
+	
+	\item Usar interfaces em assinaturas de métodos ao invés de classes. Desta forma faremos herança única, implementação múltipla.
+	
+	\item Uso de protected para reforçar o conceito de open-closed.
+	
+	\item Métodos privates para código muito especifico ou quando afeta na segurança.
+	
+	\item Sempre usar private em atributos.
+\end{itemize}
+
+
+\section{Padrões de Construção}
+Padrões de construção abstraem o processo de instanciação. Eles podem ajudar a fazer o sistema independente de como seus objetos são criados, compostos e representados. Uma classe do padrão de construção usa herança para variar a classe que está sendo instanciada, enquanto o objeto do padrão erá delegar a instanciação para outro objeto.
+
+Alguns dos padrões de construção mais importantes são:
+\begin{itemize}
+	\item Singleton: Garante somente uma instanciação do objeto no sistema.  (ver \autoref{fig:dp_singleton})
+	\item Factory Method: Criação de objeto sem expor a lógica de criação para o cliente. (ver \autoref{fig:dp_factory})
+	\item Builder: Separa a classe do seu construtor. É útil quando o construtor é complexo demais.(ver \autoref{fig:dp_builder})
+	\item Prototype: Clona objetos(ver \autoref{fig:dp_prototype})
+\end{itemize}
+
+\section{Padrões de Estrutura}
+Padrões de estrutura estão preocupados em como classes e objetos são compostos para formarem estruturas maiores. Elas usam herança para compor interfaces ou implementações. 
+
+Alguns dos padrões de estrutura mais importantes são:
+\begin{itemize}
+	\item Adapter: Provê a ponte entre duas interfaces incompatíveis.(ver \autoref{fig:dp_adapter})
+	\item Bridge: Provê uma interface que faz as funcionalidades de classes concretas trabalhem juntas de tal forma que alterar uma destas classes concretas não altera a outra.(ver \autoref{fig:dp_bridge})
+	\item Composite: Cria uma classe que contém grupos de de seu próprio objeto.(ver \autoref{fig:dp_composite})
+	\item Decorator: Cria uma classe decoradora que encapsula a classe original e provê funcionalidades adicionais, mantendo as assinaturas dos métodos originais intactas.(ver \autoref{fig:dp_decorator})
+	\item Facade: Cria uma única classe que provê métodos simplificados requeridos pelo cliente e delega as chamadas para classes do sistema existente.(ver \autoref{fig:dp_facade})
+	\item Proxy: Cria um objeto proxy que possúi o objeto original para fazer a interface de suas funcionalidades para o "mundo externo".(ver \autoref{fig:dp_proxy})
+\end{itemize}
 
 \section{Padrões de Comportamento}
-\section{Padrões de Estrutura}
-\section{Padrões de Construção}
+Os padrões de comportamento se preocupam com os algoritmos e a distribuição de responsabilidades entre os objetos. Eles não são apenas padrões entre objetos e classes, mas também padrões de comunicação entre eles. Estes padrões caracterizam fluxo de controle difíceis de seguir em tempo de execução. Eles afastam o foco do fluxo de controle para permitir que se concentre somente na maneira como os objetos se comunicam entre si.
+
+Alguns dos padrões de estrutura mais importantes são:
+\begin{itemize}
+	\item Chain of Responsibility: Este padrão desacopla senders e receivers do pedido baseado no tipo de pedido. Normalmente cada cada recebedor contem referencia pra outro recebedor. Se um dos objetos não souber lidar com o pedido então ele repassa o pedido para o próximo receiver e assim por diante. (ver \autoref{fig:dp_responsability})
+	\item Command: Um pedido é empacotado por um objeto como um comando e passado para o objeto invocador. O invocador procura o objeto apropriado para lidar com este comando.(ver \autoref{fig:dp_command})
+	\item Interpreter: Provê uma forma de avaliar uma linguagem gramatical ou expressão.(ver \autoref{fig:dp_interpreter})
+	\item Iterator: Provê meios de acessar elementos de uma coleção de maneira sequencial.(ver \autoref{fig:dp_iterator})
+	\item Mediator: Provê uma classe que lida com todas comunicações entre diferentes classes.(ver \autoref{fig:dp_mediator})
+	\item Null Object: Provê uma classe que toma o lugar do objeto null. Muito utilizado para implementar uma "do nothing relationship".(ver \autoref{fig:dp_null_object})
+	\item Observer: Utilizado em relações um-para-muitos entre interdependentes objetos de tal forma que se um deles mudar o outro é notificado automaticamente.(ver \autoref{fig:dp_observer})
+	\item State: Cria um objeto que representa vários estados e um objeto de contexto cujo comportamento varia de de acordo com a mudança do objeto de estados.(ver \autoref{fig:dp_state})
+	\item Template: É uma classe abstrata que define uma forma padrão de executar dado método. Isto é, as subclasses não podem fazer override desta implementação.(ver \autoref{fig:dp_template})
+	\item Visitor:  Provê meios de mudar o algoritmo de execução de uma dada classe. Desta forma, o algorimo de execução pode variar de acordo com as variações do visitor.(ver \autoref{fig:dp_visitor})
+\end{itemize}
+
+
