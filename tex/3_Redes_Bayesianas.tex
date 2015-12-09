@@ -11,7 +11,24 @@ Uma BN é um \gls{dag} que representa uma função de distribuição de probabil
 
 Nesse exemplo, suponhamos que se queira determinar se a família está em casa ou se ela saiu. Pelo grafo, podemos perceber que o fato de a luz da varanda estar acesa e de o cachorro estar fora de casa são indícios de que a família tenha saído. 
 
-\section{Definição Formal}
+Nas últimas décadas, redes Bayesianas se tornaram representações populares para codificar conhecimento incerto para sistemas especialistas \cite{heck95}. Mais recentemente, pesquisadores desenvolveram métodos de aprendizagem de redes Bayesianas a partir de dados. As técnicas desenvolvidas são relativamente novas e ainda em evolução, mas eles têm se mostrado muito eficientes para alguns problemas de análise de dados.
+
+Existem diversos representações possíveis para analise de dados, entre elas, decision tres, e redes neurais artificiais; e outras tantas como estimação de densidade, classificação, regressão e clusterings. Portanto o que métodos de \glspl{bn} têm a oferecer? Segundo Heckerman \cite{heck95} podemos oferecer pelo menos quatro respostas, sendo elas:
+
+\begin{enumerate}
+	\item \glspl{bn} lidam com um conjunto incompleto de dados de maneira natural.
+	
+	\item \glspl{bn} permitem aprender sobre as relações causais. Aprender sobre tais relações são importantes por pelo menos duas razões: O processo é útil quando se está tentando entender sobre um dado problema de domínio, como por exemplo, durante uma análise de dados exploratória.  E mais, conhecimento de relações causais nos permitem fazer predições na presença de intervenções. Por exemplo, um analista de mercado pode querer saber se é lucrativo aumentar o investimento em determinada propaganda para aumentar as vendas de seu produto. Para responder esta pergunta o analista pode determinar se esta propaganda é a causa para o aumento de suas vendas, e em caso afirmativo, quanto. O uso de \glspl{bn} nos ajuda a responder tal pergunta até mesmo quando não há experimentos nos efeitos de tal propaganda.
+	
+	\item \glspl{bn} em conjunto com técnicas estatísticas bayesianas facilitam a combinação de conhecimento de domínio e dados. Qualquer um que tenha feito uma análise do mundo real sabe a importância de conhecimento prévio ou de domínio, em especial quando os dados são poucos ou caros. Pelo fato de alguns sistemas comerciais (i.e., sistemas especialistas) podem ser construídos a partir de conhecimentos prévios. \cglspl{bn} possuem uma semântica causal que permitem conhecimentos prévios serem representados de uma forma muito simples e natural. Além disto, \glspl{bn} encapsulam tais relações causais com suas probabilidades. Consequentemente, conhecimento prévio e dados podem ser combinados com técnicas bem estudadas da estatística Bayesiana.
+	
+	\item Métodos Bayesianos em conjunto com \glspl{bn} e outros tipos de modelos oferecem uma forma eficiente para evitar over fitting dos dados. Não há necessidade de excluir parte dos dados do treinamento do aprendizado da rede. Usando técnicas Bayesianas, modelos podem ser "suavizados" de tal forma que todo dado disponível pode ser usado para o treinamento.
+	
+\end{enumerate}
+
+Neste capítulo oferecemos a definição formal de \gls{bn} e introduzimos a propriedade de d-separation. Segundo J. Pearl \cite{pearl88}, é esta propriedade que permite \glspl{bn} serem um formalismo tão robusto para lidar com incerteza, pois é o que nos permite ignorar informação que não é importante. "Permissão para ignorar é o que dá combustível para sistemas semânticos" completa ele.
+
+\section{Distribuição de Probabilidade Disjunta da Rede Bayesiana}
 Considere a \gls{bn} contendo $n$ nós, $X_1$ até $X_n$, tomados nesta ordem. Uma instanciação da distribuição disjunta de probabilidade é representada por $P(X_1 = x_1, X_2 = x_2, ... , X_n = x_n)$, ou de forma compacta $P(x_1, x_2, ..., x_n)$. A \textbf{regra da cadeia} nos permite fatorar probabilidades disjuntas como:
 \begin{equation}
 	P(x_1, x_2, ..., x_n) = P(x_1)P(x_2|x_1)...P(x_n|x_1,..,x_{n-1})\\
