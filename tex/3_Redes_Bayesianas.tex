@@ -28,7 +28,8 @@ Existem diversos representações possíveis para analise de dados, entre elas, 
 
 Neste capítulo oferecemos a definição formal de \gls{bn} e introduzimos a propriedade de d-separation. Segundo J. Pearl \cite{pearl88}, é esta propriedade que permite \glspl{bn} serem um formalismo tão robusto para lidar com incerteza, pois é o que nos permite ignorar informação que não é importante. "Permissão para ignorar é o que dá combustível para sistemas semânticos" completa ele.
 
-\section{Distribuição de Probabilidade Disjunta da Rede Bayesiana}
+\section{Definição Formal}
+Formalmente, portanto, uma Rede Bayesiana é uma 3-upla $B := (N, E, P)$\ onde $G:=(N,E)$\ forma um \gls{dag}, isto é um grafo acíclico e direcionado. $P$\ é a probabilidade disjunta das variáveis.
 Considere a \gls{bn} contendo $n$ nós, $X_1$ até $X_n$, tomados nesta ordem. Uma instanciação da distribuição disjunta de probabilidade é representada por $P(X_1 = x_1, X_2 = x_2, ... , X_n = x_n)$, ou de forma compacta $P(x_1, x_2, ..., x_n)$. A \textbf{regra da cadeia} nos permite fatorar probabilidades disjuntas como:
 \begin{equation}
 	P(x_1, x_2, ..., x_n) = P(x_1)P(x_2|x_1)...P(x_n|x_1,..,x_{n-1})\\

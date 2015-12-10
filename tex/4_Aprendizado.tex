@@ -100,17 +100,90 @@ A partir dessa taela é possível calcular a probabilidade associada a cada par�
 
 \section{Aprendizado de Estrutura}
 O Objetivo da aprendizagem da Estrutura é encontrar a topologia da \gls{bn} que mais se adéqua aos nossos dados. Para isto podemos atacar o problema de duas formas distintas:
+
 \begin{itemize}
 	\item Busca e pontuação: fazemos uma busca no conjunto de todos \gls{dag} existentes entre nossas variáveis usando heurísticas robustas o suficiente.
 	\item Análise de dependência: utilizamos técnicas estatísticas bem desenvolvidas para analisar a dependência entre nossos dados e a partir deles inferir a estrutura da rede.
 \end{itemize}
 
-Vamos começar discutindo sobre algoritmos de busca e pontuação, apresentamos as heurísticas mais famosas.
+
+Vamos começar discutindo sobre algoritmos de busca e pontuação, apresentamos as heurísticas mais famosas e descrevemos o algoritmo K2.
 
 \subsection{Busca e Pontuação}
+A ideia dos algoritmos de Busca e Pontuação consiste em procurar pela rede que melhor se adere aos nossos dados dentro do universo de todas redes possíveis, isto é, que maximize a probabilidade posterior de acordo com os dados.No entanto este problema foi demonstrado ser NP-Completo \cite{chickering96}, podendo se tornar NP-Hard caso o tamanho do banco de dados seja grande o suficiente \cite{chickering04}. Seja como for, boas técnicas heurísticas são necessárias para maximizar esta busca.
 
+As funções de pontuação mais famosas são:
+\begin{itemize}
+	\item Cooper \& Herkovits \cite{cooper92} derivaram a seguinte função a partir de algumas suposições básicas, listadas mais a seguir:
+	\begin{equation}
+	CH(X_i, pa_i) = \prod_{j=1}^{q_i}\frac{(r_i - 1)!}{(r_i + N_{ij} - 1)!}.\prod_{k=1}^{r_i}N_{ijk}
+	\end{equation}
 
+	\item \gls{mdl} é bedeado na idéia que o melhor modelo é uma coleção de dados que minimiza a soma do comprimento de dados que codifica o modelo.
+	\begin{equation}
+	MDL(X_i,pa_i) = (\prod_{j=1}^{q_i}\prod_{k=1}^{r_i}N_{ijk}log\frac{N_{ijk}}{N_{ij}})-\frac{1}{2}q_i(r_i-1)logN
+	\end{equation}
 
+	\item Similarmente ao \gls{mdl}, a heurística \gls{mml} busca minimizar minimizar o comprimento da mensagem codificada.
+	\begin{equation}
+	MML(X_i,pa_i) = log_2 n + \frac{n(n-1)}{2}-log_2Bits
+	\end{equation}
+	onde BITS é a quantidade de bits necessária para codificar a ordenação total das variáveis.
+\end{itemize}
+
+\subsubsection{O Algoritmo K2}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width = 450px]{figuras/K2}
+	\caption{Pseudocódigo do algoritmo K2 (retirado de \cite{cooper92})}
+	\label{fig:K2}
+\end{figure}
+Juntamente da métrica CH Cooper \& Herkovits \cite{cooper92} definiram um algoritmo muito simples de aprendizado que denominaram K2, pois era visto como uma melhoria de um algoritmo já existente, o Katató.
+
+A ideia principal do algoritmo K2 é inserir nós de forma gulosa\footnote{Busca gulosa: do inglês greedy search} entre as variáveis até que nenhum nó seja capaz de aumentar a probabilidade da rede. Para isto é necessário informar uma ordem total entre os nós.
+
+Primeiramente assume-se quatro fatores para se aplicar o algoritmo:
+
+\begin{enumerate}
+	\item As variáveis do banco de dados são discretos. Caso os dados hajam valores contínuos é necessário discretizá-los. 
+	
+	\item Os casos ocorrem de forma independente. Por exemplo, se uma moeda é justa (50\% de chance de cair cara), então o fato do primeiro lançamento dar cara não influencia nossa crença do segundo lançamento também dar cara.
+	
+	\item Não há casos com valores faltantes.
+	
+	\item As estruturas são igualmente prováveis.
+	
+\end{enumerate}
+Na \autoref{fig:K2} apresentamos o pseudocódigo do algoritmo K2, onde $\pi_i \equiv pa_i$  e $g(i, \pi_i$ é alguma métrica de pontuação.
+
+\subsubsection{O Algoritmo B}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width = 300px]{figuras/B_Algorithm}
+	\caption{Pseudocódigo do algoritmo B (retirado de \cite{buntine91})}
+	\label{fig:B_algorithm}
+\end{figure}
+O algoritmo B proposto em 1991 por Buntine \cite{buntine91} nada mais é que uma generalização do K2 utilizando beam search. A ideia de Buntine era propor um algoritmo e extendê-lo para ser capaz de aplicar incremental learning, isto é, poder adicionar dados e continuar o aprendizado da rede mesmo depois de ela pronta, sem necessitar fazer recomputações desnecessárias.
+
+Beam search é uma especialização do Breadth-first search, com parâmetros de quantos sucessores devemos expadir. Portanto o algoritmo B recebe quatro parâmetros 1 > C > D > E. Se a posterior da estrutura for menor que E marcamos aquela estrutura como morta, isto é, não se explora mais seus descendentes. C e D são os parâmetros do Beam Search. Quando C, D e E se aproximam de 1 o algoritmo se reduz ao K2.
+
+Além disto também devemos informar uma ordenação total das variáveis, assim como no algoritmo K2.
+
+A \autoref{fig:B_algorithm} mostra um pseudocódigo do algoritmo B.
+
+Outros algoritmos que podemos citar são as árvores de chowliu\cite{chow68},, kutató\cite{kutato13}, K2, Wong-Xiang\cite{wong94}, Lam-Bacchus\cite{lam94}, Benedict\cite{benedict96}, Suzuki\cite{suzuki96}, Friedman-Goldszmidt\cite{friedman97}.
 \subsection{Análise de Dependência}
+Para a classe de algoritmos de Análise de Dependência é assumido que a estrutura da rede representa perfeitamente as dependências e independências do domínio. A validade de uma independência pode ser verificada realizando-se u mteste estatístico usando o banco de dado sobre o domínio. A idéia geral desta classe de algoritmos é a seguinte:
 
-\section{Aprendizado Incremental}
+\begin{enumerate}
+	\item Iniciar com um grafo não direcionado sobre V;
+	\item Remover o Arco entre dois nós u e v para o qual um conjunto de variáveis $S \subseteq V\backslash \{uv\} $ pode ser encontrado tal que u e v são condicionalmente independentes dados S;
+	\item Selecionar arcos e nós e associar uma direção aos arcos para formar um v-nó na estrutura
+	\item Associar direções aos arcos restantes tal que um grafo direcionado acíclico seja formado.
+\end{enumerate}
+A diferença básica entre os vários algoritmos neste enfoque está no modo como os conjuntos de variáveis S são encontrados e nas regras de associação da direcionalidade.
+
+Podemos citar como exemplos os algoritmos CBL \cite{cbl98} e indução causal, proposto por Pearl \cite{pearl91}
+
+
+
