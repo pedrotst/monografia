@@ -2,7 +2,7 @@ Durante esse semestre de 2015/2 foram iniciados os estudos em conjunto com o Gui
 
 Este capítulo tem por objetivo oferecer um resumo das atividades desenvolvidas no decorrer deste semestre e delinear as atividades a serem feitas nos semestres seguintes. 
 
-\section{O que foi feito}
+\section{Atividades Realizadas}
 No decorrer deste semestre o professor Shou Matsumoto, douturando da \gls{gmu} ministrou aulas semanais às segundas via Skype sobre os conteúdos de: 
 
 \begin{enumerate}
@@ -19,15 +19,20 @@ No decorrer deste semestre o professor Shou Matsumoto, douturando da \gls{gmu} m
 No decorrer do semestre também fui escalado para implementar ou consertar tarefas de usabilidade no UnBBayes. Foram elas:
 \begin{enumerate}
 	\item Implementar crtl+c e crtl+v de nós para a extensão MEBN;
-	\item Implementar deleção de multiplos findings de MEBN;
+	\item Implementar deleção de múltiplos findings de MEBN;
 	\item Refatorar a \gls{cpt} para prover uma melhor visualização de tabelas muito grandes.
 \end{enumerate}
 
 Para a primeira tarefa tentei refatorar o crtl+c crtl+v já existente no core para que cada nó saiba como se copiar, entretanto tive problemas com as chamadas de funções, pois a funcionalidade de cada nó não estava encapsulada o suficiente para fazê-lo, então por motivo de falta de tempo não pude ir adiante.
 
-A terceira tarefa foi implementada através da não-scrollagem da primeira coluna.
+A terceira tarefa foi implementada através da não-scrolagem da primeira coluna.
 
-\section{O que será feito}
-Ficou decidido que nos semestres subsequentes será implementado um novo módulo de Incremental Learning, utilizando-se as mais novas tecnicas disponíveis. E com isto analisar dados de Bactérias disponibilizados pelo professor Ladeira.
+\section{Atividades que serão realizadas}
+Ficou decidido que nos semestres subsequentes será implementado um novo módulo de Incremental Learning, utilizando-se as mais novas tecnicas disponíveis. 
+E com isto analisar dados de Bactérias disponibilizados pelo professor Ladeira.
 
-O cronograma atualizado a ser realizado nos próximos semestres pode ser encontrado em \cite{cronograma}
+Nos primeiros meses iremos levantar um estudo do estado da arte sobre learning e incremental learning, analisar as necessidades dos dados que serão analisados, isto é, os dados tem valores faltantes? São independentes entre si? Possuem variáveis contínuas? Como visto no \autoref{ch:aprendizado}, todas estas perguntas influenciam na escolha do algoritmo e nas técnicas que deveremos estudar nos próximos meses.
+
+O cronograma atualizado a ser realizado nos próximos semestres pode ser encontrado em \cite{cronograma}. E não foi disponibilizado aqui por motivos de espaço.
+
+Finalmente podemos concluir que este semestre foi proveitoso o suficiente para iniciar nossa compreensão em \gls{bn}, learning, a ferramenta UnBBayes. E que estamos preparados para concluir uma tarefa robusta e auto-contida até o final de 2016.

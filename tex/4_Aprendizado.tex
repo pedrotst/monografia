@@ -1,4 +1,5 @@
 %\chapter{Aprendizado de Redes Bayesianas}
+\label{ch:aprendizado}
 Muitas vezes, quando queremos construir uma \gls{bn}, o conhecimento do relacionamento de causa entre as variáveis do nosso dominio pode ser incerto, o custo de um especialista muito elevado, e principalmente, precisar as probabilidades dos de cada nó dados seus pode ser inviável. No entanto, se tivermos dados sobre o problema, isto pode facilitar muito esse processo de criação da \gls{bn}, tudo que precisamos fazer é adaptar técnicas de aprendizado de máquina para o escopo de \glspl{bn}. Pensando nisto o interesse em desenvolver e implementar estas técnicas vem aumentando nos últimos anos.
 
 É importante observar que as probabilidades representadas por \gls{bn} pode ser Bayesiana ou Física. Quando construímos uma \gls{bn} a partir de conhecimento prévio tão somente, as probabilidades serão Bayesianas. No entanto se aprendermos estas estruturas a partir de dados, estas probabilidades serão físicas \cite{heck95}.
@@ -107,7 +108,7 @@ O Objetivo da aprendizagem da Estrutura é encontrar a topologia da \gls{bn} que
 \end{itemize}
 
 
-Vamos começar discutindo sobre algoritmos de busca e pontuação, apresentamos as heurísticas mais famosas e descrevemos o algoritmo K2.
+Vamos começar discutindo sobre algoritmos de busca e pontuação, apresentamos as heurísticas mais famosas e descrevemos o algoritmo K2 e o B. Em seguida apresentaremos os algoritmos baseados em dependencia condicional, os quais dependem fortemente do conceito de d-separação, uma vez que é a d-separação que nos permite fazer asserções acerca da dependência das variáveis na rede.
 
 \subsection{Busca e Pontuação}
 A ideia dos algoritmos de Busca e Pontuação consiste em procurar pela rede que melhor se adere aos nossos dados dentro do universo de todas redes possíveis, isto é, que maximize a probabilidade posterior de acordo com os dados.No entanto este problema foi demonstrado ser NP-Completo \cite{chickering96}, podendo se tornar NP-Hard caso o tamanho do banco de dados seja grande o suficiente \cite{chickering04}. Seja como for, boas técnicas heurísticas são necessárias para maximizar esta busca.
@@ -154,7 +155,7 @@ Primeiramente assume-se quatro fatores para se aplicar o algoritmo:
 	\item As estruturas são igualmente prováveis.
 	
 \end{enumerate}
-Na \autoref{fig:K2} apresentamos o pseudocódigo do algoritmo K2, onde $\pi_i \equiv pa_i$  e $g(i, \pi_i$ é alguma métrica de pontuação.
+Na \autoref{fig:K2} apresentamos o pseudocódigo do algoritmo K2, onde $\pi_i \equiv pa_i$, isto é, os pais de $x_i$  e $g(i, \pi_i)$ é alguma métrica de pontuação.
 
 \subsubsection{O Algoritmo B}
 \begin{figure}[htb]
@@ -173,7 +174,7 @@ A \autoref{fig:B_algorithm} mostra um pseudocódigo do algoritmo B.
 
 Outros algoritmos que podemos citar são as árvores de chowliu\cite{chow68},, kutató\cite{kutato13}, K2, Wong-Xiang\cite{wong94}, Lam-Bacchus\cite{lam94}, Benedict\cite{benedict96}, Suzuki\cite{suzuki96}, Friedman-Goldszmidt\cite{friedman97}.
 \subsection{Análise de Dependência}
-Para a classe de algoritmos de Análise de Dependência é assumido que a estrutura da rede representa perfeitamente as dependências e independências do domínio. A validade de uma independência pode ser verificada realizando-se u mteste estatístico usando o banco de dado sobre o domínio. A idéia geral desta classe de algoritmos é a seguinte:
+Para a classe de algoritmos de Análise de Dependência é assumido que a estrutura da rede representa perfeitamente as dependências e independências do domínio. A validade de uma independência pode ser verificada realizando-se um teste estatístico usando o banco de dado sobre o domínio. A idéia geral desta classe de algoritmos é a seguinte:
 
 \begin{enumerate}
 	\item Iniciar com um grafo não direcionado sobre V;
