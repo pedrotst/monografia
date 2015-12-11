@@ -120,7 +120,7 @@ As funções de pontuação mais famosas são:
 	CH(X_i, pa_i) = \prod_{j=1}^{q_i}\frac{(r_i - 1)!}{(r_i + N_{ij} - 1)!}.\prod_{k=1}^{r_i}N_{ijk}
 	\end{equation}
 
-	\item \gls{mdl} é bedeado na idéia que o melhor modelo é uma coleção de dados que minimiza a soma do comprimento de dados que codifica o modelo.
+	\item \gls{mdl}\cite{cheng02} é bedeado na idéia que o melhor modelo é uma coleção de dados que minimiza a soma do comprimento de dados que codifica o modelo.
 	\begin{equation}
 	MDL(X_i,pa_i) = (\prod_{j=1}^{q_i}\prod_{k=1}^{r_i}N_{ijk}log\frac{N_{ijk}}{N_{ij}})-\frac{1}{2}q_i(r_i-1)logN
 	\end{equation}
@@ -172,7 +172,7 @@ Além disto também devemos informar uma ordenação total das variáveis, assim
 
 A \autoref{fig:B_algorithm} mostra um pseudocódigo do algoritmo B.
 
-Outros algoritmos que podemos citar são as árvores de chowliu\cite{chow68},, kutató\cite{kutato13}, K2, Wong-Xiang\cite{wong94}, Lam-Bacchus\cite{lam94}, Benedict\cite{benedict96}, Suzuki\cite{suzuki96}, Friedman-Goldszmidt\cite{friedman97}.
+Outros algoritmos que podemos citar são as árvores de chowliu\cite{chow68}, kutató\cite{kutato13}, K2, Wong-Xiang\cite{wong94}, Lam-Bacchus\cite{lam94}, Benedict\cite{benedict96}, Suzuki\cite{suzuki96}, Friedman-Goldszmidt\cite{friedman97}.
 \subsection{Análise de Dependência}
 Para a classe de algoritmos de Análise de Dependência é assumido que a estrutura da rede representa perfeitamente as dependências e independências do domínio. A validade de uma independência pode ser verificada realizando-se um teste estatístico usando o banco de dado sobre o domínio. A idéia geral desta classe de algoritmos é a seguinte:
 
